@@ -5,7 +5,7 @@
 
 1. 사용법
 
-   > node index.js $username $password
+   > `RIDI_USERNAME=<username> RIDI_PASSWORD=<password> docker-compose up`
 
 2. ![](public/screenshot.png)
 

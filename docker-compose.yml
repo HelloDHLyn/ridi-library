@@ -1,0 +1,18 @@
+version: '3'
+services:
+  ridi-library_makedb:
+    image: node:carbon
+    working_dir: /usr/src/app
+    command: node index.js ${RIDI_USERNAME} ${RIDI_PASSWORD}
+    volumes:
+      - .:/usr/src/app
+
+  ridi-library_nginx:
+    image: nginx:latest
+    ports:
+      - '8080:80'
+    volumes:
+      - ./public:/usr/share/nginx/html/public
+      - ./index.html:/usr/share/nginx/html/index.html
+    depends_on:
+      - ridi-library_makedb
